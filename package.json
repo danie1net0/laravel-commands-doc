@@ -1,18 +1,9 @@
 {
-  "name": "Laravel Commands",
-  "version": "0.0.1",
-  "description": "Generator commands for Laravel applications",
-  "main": "index.js",
-  "authors": {
-    "name": "Daniel",
-    "email": "daniel@danielneto.dev.br"
-  },
-  "repository": "https://github.com/danie1net0/laravel-commands/Laravel Commands",
+  "name": "laravel-commands-doc",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
-  "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.5.3"
   }
