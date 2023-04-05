@@ -42,10 +42,10 @@ module.exports = {
       '/guide/': [
         {
           title: 'Guide',
-          collapsable: false,
+          collapsable: true,
           children: [
             '',
-            'using-vue',
+            'install',
           ]
         }
       ],
