@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '19'
-          
+
       - name: GitHub Auth
         env:
           email: ${{ secrets.EMAIL }}
@@ -24,13 +24,13 @@ jobs:
           echo "https://${access_token}:x-oauth-basic@github.com" > ~/.git-credentials
           git config --global user.email $email
           git config --global user.name $username
-          
+
       - name: Deploy
         run: |
           npm i 
-          NODE_OPTIONS=--openssl-legacy-provider vuepress build src
+          npm run build
           cd src/.vuepress/dist
           git init
           git add -A
-          git commit -m "🚀 Deploy id ${GITHUB_RUN_ID}"
-          git push -f "https://github.com/${GITHUB_REPOSITORY}.git" master
+          git commit -m "Deploy"
+          git push -f "${REPOSITORY}" master
