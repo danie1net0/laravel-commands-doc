@@ -1,36 +1,18 @@
-name: deploy
+name: Build and Deploy
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '19'
+      - name: Checkout
+        uses: actions/checkout@master
 
-      - name: GitHub Auth
+      - name: vuepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
         env:
-          email: ${{ secrets.EMAIL }}
-          username: ${{ secrets.USERNAME }}
-          access_token: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          git config --global credential.helper store
-          echo "https://${access_token}:x-oauth-basic@github.com" > ~/.git-credentials
-          git config --global user.email $email
-          git config --global user.name $username
-
-      - name: Deploy
-        run: |
-          npm i 
-          npm run build
-          cd src/.vuepress/dist
-          git init
-          git add -A
-          git commit -m "Deploy"
-          git push -f "${REPOSITORY}" master
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TARGET_REPO: danie1net0/laravel-commands-doc
+          BUILD_SCRIPT: npm install && npm run build
+          BUILD_DIR: src/.vuepress/dist
