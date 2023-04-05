@@ -46,6 +46,7 @@ module.exports = {
           children: [
             '',
             'install',
+            'create-action',
           ]
         }
       ],
