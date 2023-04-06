@@ -1,8 +1,10 @@
 ---
 home: true
 heroImage: /images/hero.png
-tagline: Generator commands for Laravel applications
+tagline: Laravel Commands is a Laravel package designed to simplify the process of generating resources using the Artisan command line interface.
 actionText: Quick Start →
 actionLink: /guide/
-footer: Made by Daniel Neto with ❤️
 ---
+::: slot footer
+Made by [Daniel Neto](https://github.com/danie1net0)
+:::
