@@ -1,5 +1,6 @@
 {
   "name": "laravel-commands-doc",
+  "description": "Laravel Commands is a Laravel package designed to simplify the process of generating resources using the Artisan command line interface.",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src"
